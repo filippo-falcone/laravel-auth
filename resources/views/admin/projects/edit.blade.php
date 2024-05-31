@@ -11,23 +11,29 @@
         @csrf
         @method('PUT')
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingName" name="name" value="{{ $project->name }}"
-                placeholder="Project name">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingName" name="name"
+                value="{{ old('name', $project->name) }}" placeholder="Project name">
             <label for="floatingName">Project name</label>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">
-                <i class="fa-regular fa-building"></i>
-            </span>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingClientName" name="client_name"
-                    value="{{ $project->client_name }}" placeholder="Client name">
-                <label for="floatingClientName">Client name</label>
-            </div>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-floating mb-3">
-            <textarea class="form-control" name="summary" rows="9" placeholder="Leave a summary here" id="floatingSummary">{{ $project->summary }}</textarea>
+            <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="floatingClientName"
+                name="client_name" value="{{ old('client_name', $project->client_name) }}" placeholder="Client name">
+            <label for="floatingClientName">Client name</label>
+            @error('client_name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control @error('summary') is-invalid @enderror" name="summary" rows="9"
+                placeholder="Leave a summary here" id="floatingSummary">{{ old('summary', $project->summary) }}
+            </textarea>
             <label for="floatingSummary">Summary</label>
+            @error('summary')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

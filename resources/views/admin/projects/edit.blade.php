@@ -28,8 +28,7 @@
         </div>
         <div class="form-floating mb-3">
             <textarea class="form-control @error('summary') is-invalid @enderror" name="summary" rows="9"
-                placeholder="Leave a summary here" id="floatingSummary">{{ old('summary', $project->summary) }}
-            </textarea>
+                placeholder="Leave a summary here" id="floatingSummary">{{ old('summary', $project->summary) }}</textarea>
             <label for="floatingSummary">Summary</label>
             @error('summary')
                 <div class="invalid-feedback">{{ $message }}</div>

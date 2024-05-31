@@ -27,14 +27,24 @@
                     <td class="d-none d-lg-table-cell">{{ $project->created_at }}</td>
                     <td class="d-none d-lg-table-cell">{{ $project->updated_at }}</td>
                     <td>
-                        <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.projects.show', $project->id) }}"
-                            role="button">
-                            <i class="fa-solid fa-eye fa-sm"></i>
-                        </a>
-                        <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', $project->id) }}"
-                            role="button">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <a class="btn btn-outline-primary btn-sm"
+                                href="{{ route('admin.projects.show', $project->id) }}" role="button">
+                                <i class="fa-solid fa-eye fa-sm"></i>
+                            </a>
+                            <a class="btn btn-outline-warning btn-sm"
+                                href="{{ route('admin.projects.edit', $project->id) }}" role="button">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <form class="d-inline" action="{{ route('admin.projects.destroy', $project->id) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

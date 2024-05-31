@@ -18,4 +18,12 @@
             <p class="card-text"><strong>Updated at:</strong> {{ $project->updated_at }}</p>
             <p class="card-text">{{ $project->summary }}</p>
         </div>
-    @endsection
+        <div class="card-footer">
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-outline-warning" href="{{ route('admin.projects.edit', $project->id) }}" role="button">
+                    <i class="fa-solid fa-pencil fa-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+@endsection

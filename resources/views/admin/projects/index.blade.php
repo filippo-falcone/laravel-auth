@@ -31,6 +31,10 @@
                             role="button">
                             <i class="fa-solid fa-eye fa-sm"></i>
                         </a>
+                        <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', $project->id) }}"
+                            role="button">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

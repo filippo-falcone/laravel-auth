@@ -27,12 +27,12 @@
                     <td class="d-none d-lg-table-cell">{{ $project->created_at }}</td>
                     <td class="d-none d-lg-table-cell">{{ $project->updated_at }}</td>
                     <td>
-                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <div class="d-flex flex-column flex-md-row align-items-center">
                             <a class="btn btn-outline-primary btn-sm"
                                 href="{{ route('admin.projects.show', $project->id) }}" role="button">
                                 <i class="fa-solid fa-eye fa-sm"></i>
                             </a>
-                            <a class="btn btn-outline-warning btn-sm"
+                            <a class="btn btn-outline-warning btn-sm my-2 my-md-0 mx-md-2"
                                 href="{{ route('admin.projects.edit', $project->id) }}" role="button">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>

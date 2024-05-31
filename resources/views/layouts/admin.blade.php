@@ -67,9 +67,14 @@
                                     Projects
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.create') }}">
+                                    <i class="fa-solid fa-circle-plus fa-lg fa-fw"></i>
+                                    Create
+                                </a>
+                            </li>
                         </ul>
-
-
                     </div>
                 </nav>
 

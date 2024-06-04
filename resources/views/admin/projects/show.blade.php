@@ -24,10 +24,10 @@
         </div>
         <div class="card-footer">
             <div class="d-flex justify-content-between">
-                <a class="btn btn-outline-warning" href="{{ route('admin.projects.edit', $project->id) }}" role="button">
+                <a class="btn btn-outline-warning" href="{{ route('admin.projects.edit', $project->slug) }}" role="button">
                     <i class="fa-solid fa-pencil fa-sm"></i>
                 </a>
-                <form class="d-inline" action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+                <form class="d-inline" action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-outline-danger">

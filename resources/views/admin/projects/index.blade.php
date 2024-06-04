@@ -30,14 +30,14 @@
                     <td>
                         <div class="d-flex flex-column flex-md-row align-items-center">
                             <a class="btn btn-outline-primary btn-sm"
-                                href="{{ route('admin.projects.show', $project->id) }}" role="button">
+                                href="{{ route('admin.projects.show', $project->slug) }}" role="button">
                                 <i class="fa-solid fa-eye fa-sm"></i>
                             </a>
                             <a class="btn btn-outline-warning btn-sm my-2 my-md-0 mx-md-2"
-                                href="{{ route('admin.projects.edit', $project->id) }}" role="button">
+                                href="{{ route('admin.projects.edit', $project->slug) }}" role="button">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
-                            <form class="d-inline" action="{{ route('admin.projects.destroy', $project->id) }}"
+                            <form class="d-inline" action="{{ route('admin.projects.destroy', $project->slug) }}"
                                 method="POST">
                                 @csrf
                                 @method('DELETE')

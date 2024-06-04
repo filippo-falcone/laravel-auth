@@ -60,7 +60,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->fill($formData);
         $newProject->save();
-        return redirect()->route('admin.projects.show', ['project' => $newProject->id])->with('message', $newProject->name . ' successfully created.');
+        return redirect()->route('admin.projects.show', ['project' => $newProject->slug])->with('message', $newProject->name . ' successfully created.');
     }
 
     /**
@@ -123,7 +123,7 @@ class ProjectController extends Controller
         }
         $project->update($formData);
         session()->flash('message', $project->name . ' successfully updated.');
-        return redirect()->route('admin.projects.show', ['project' => $project->id])->with('message', $project->name . ' successfully updated.');
+        return redirect()->route('admin.projects.show', ['project' => $project->slug])->with('message', $project->name . ' successfully updated.');
     }
 
     /**

@@ -112,6 +112,13 @@ class ProjectController extends Controller
         );
         $formData = $request->all();
         $project->slug = Str::slug($formData['name'], '-');
+        if ($request->hasFile('image')) {
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+            $img_path = Storage::disk('public')->put('projects_images', $formData['image']);
+            $formData['image'] = $img_path;
+        }
         $project->update($formData);
         return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }

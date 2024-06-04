@@ -7,7 +7,8 @@
         </a>
     </div>
     <h2 class="fs-4 text-secondary my-4">Edit Project</h2>
-    <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST">
+    <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-floating mb-3">
@@ -17,6 +18,17 @@
             @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <input type="file" class="form-control" name="image" id="image">
+            @if ($project->image)
+                <div>
+                    <img src="{{ asset('storage/' . $project->image) }}" class="img-thumbnail" alt="{{ $project->name }}"
+                        width="150">
+                </div>
+            @else
+                <small>Image not found</small>
+            @endif
         </div>
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="floatingClientName"

@@ -7,7 +7,7 @@
         </a>
     </div>
     <h2 class="fs-4 text-secondary my-4">Create Project</h2>
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingName" name="name"
@@ -16,6 +16,9 @@
             @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <input type="file" class="form-control" name="image" id="image">
         </div>
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="floatingClientName"

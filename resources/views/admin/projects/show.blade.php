@@ -10,6 +10,9 @@
         <div class="card-header">
             <h3>{{ $project->name }}</h3>
         </div>
+        @if ($project->image)
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }}">
+        @endif
         <div class="card-body">
             <p class="card-text"><strong>Slug:</strong> {{ $project->slug }}</p>
             <p class="card-text"><strong>Client Name:</strong>

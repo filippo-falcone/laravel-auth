@@ -18,7 +18,10 @@
             @enderror
         </div>
         <div class="mb-3">
-            <input type="file" class="form-control" name="image" id="image">
+            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+            @error('image')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('client_name') is-invalid @enderror" id="floatingClientName"

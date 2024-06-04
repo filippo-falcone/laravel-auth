@@ -20,7 +20,10 @@
             @enderror
         </div>
         <div class="mb-3">
-            <input type="file" class="form-control" name="image" id="image">
+            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image">
+            @error('image')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
             @if ($project->image)
                 <div>
                     <img src="{{ asset('storage/' . $project->image) }}" class="img-thumbnail" alt="{{ $project->name }}"

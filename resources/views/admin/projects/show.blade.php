@@ -6,6 +6,7 @@
             <i class="fa-solid fa-arrow-left fa-sm"></i>
         </a>
     </div>
+    @include('partials.flash-messages')
     <div class="card">
         <div class="card-header">
             <h3>{{ $project->name }}</h3>

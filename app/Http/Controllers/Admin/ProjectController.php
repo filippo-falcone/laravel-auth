@@ -60,7 +60,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->fill($formData);
         $newProject->save();
-        return redirect()->route('admin.projects.show', ['project' => $newProject->id]);
+        return redirect()->route('admin.projects.show', ['project' => $newProject->id])->with('message', $newProject->name . ' successfully created.');
     }
 
     /**
@@ -122,7 +122,8 @@ class ProjectController extends Controller
             $formData['image'] = $img_path;
         }
         $project->update($formData);
-        return redirect()->route('admin.projects.show', ['project' => $project->id]);
+        session()->flash('message', $project->name . ' successfully updated.');
+        return redirect()->route('admin.projects.show', ['project' => $project->id])->with('message', $project->name . ' successfully updated.');
     }
 
     /**
@@ -134,6 +135,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index')->with('message', $project->name . ' successfully deleted.');
     }
 }

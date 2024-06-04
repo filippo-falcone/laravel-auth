@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+    @include('partials.flash-messages')
     <div class="d-flex justify-content-between align-items-center my-4">
         <h2 class="fs-4 text-secondary">Projects</h2>
         <a class="btn btn-outline-success btn-sm" href="{{ route('admin.projects.create') }}" role="button">
